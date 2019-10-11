@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1570748943 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"utn_strings.h"
+
+1570748737 c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.h
+
+1559244292 c:\users\alumno\desktop\parcial10102019\parcial10102019\utn_strings.h
+
+1570749180 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1570748446 c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.h
+
+1570744050 c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.h
+
+1570749200 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+
+1570744032 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.c
+
+1559206326 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\utn_strings.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"utn_strings.h"
+
