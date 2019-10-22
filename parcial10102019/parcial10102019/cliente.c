@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cliente.h"
+#include "pedido.h"
+#include "residuos.h"
 #include "utn_strings.h"
 
 int cli_initCliente(Cliente* pCliente,int len)
@@ -38,22 +40,22 @@ int cli_addCliente(Cliente* pCliente,int len,int pIndex,char* msgE,int tries)
     char bufferNameEmp[50];
     char bufferDireccion[50];
     char bufferLocalidad[50];
-    char auxcuit;
+    char auxcuit[20];
     int retorno=-1;
     if((pCliente!=NULL)&&(len>0)&&(pIndex!=-1))
     {
         if(((getStringLetras(bufferNameEmp,"\nIngrese Nombre: ",msgE,tries)==0)&&
-            (getStringLetras(bufferDireccion,"\nIngrese Direccion: ",msgE,tries)==0)&&
-            (getStringLetras(bufferLocalidad,"\nIngrese Localidad: ",msgE,tries)==0)))
+            (getString(bufferDireccion,"\nIngrese Direccion: ",msgE)==0)&&
+            (getStringLetras(bufferLocalidad,"\nIngrese Localidad: ",msgE,tries)==0))&&
+           (getStringNumeros(auxcuit,"\nIngrese Cuit:",msgE,3)==0))
         {
-            getCuit(&auxcuit,"\nIngrese cuit:","Error",3);
             strncpy(pCliente[pIndex].nombreEmpresa,bufferNameEmp,sizeof(bufferNameEmp));
             strncpy(pCliente[pIndex].direccion,bufferDireccion,sizeof(bufferDireccion));
             strncpy(pCliente[pIndex].localidad,bufferLocalidad,sizeof(bufferLocalidad));
-            pCliente[pIndex].cuit=auxcuit;
+            strncpy(pCliente[pIndex].cuit,auxcuit,sizeof(auxcuit));
             pCliente[pIndex].isEmpty=0;
-            cli_printCliente(pCliente,len);
             retorno=0;
+            fflush(stdin);
         }
     }
     return retorno;
@@ -124,7 +126,7 @@ int cli_alter(Cliente* pCliente, int len,char* msgE,int tries)
                     {
                         case 1:
                         {
-                            if(!getStringLetras(bufferDireccion,"\nIngrese NUEVA Direccion: ",msgE,tries))
+                            if(!getString(bufferDireccion,"\nIngrese NUEVA Direccion: ",msgE))
                             {
                                 strncpy(pCliente[posOfID].direccion,bufferDireccion,sizeof(bufferDireccion));
                                 retorno=1;
@@ -206,7 +208,7 @@ int cli_printCliente(Cliente* pCliente,int len)
     {
         if(pCliente[i].isEmpty!=1)
         {
-            printf("\nID: %d\nNombreEmpresa: %s\nDireccion: %s\nLocalidad: %s\ncuit: %d\n-------",
+            printf("\nID: %d\nNombreEmpresa: %s\nDireccion: %s\nLocalidad: %s\ncuit: %s\n-------",
             pCliente[i].idCliente,pCliente[i].nombreEmpresa,pCliente[i].direccion,pCliente[i].localidad,pCliente[i].cuit);
             flag=0;
         }
@@ -214,7 +216,6 @@ int cli_printCliente(Cliente* pCliente,int len)
     if(flag)
     {
         printf("\n----El listado se encuentra vacio----\n");
-        return -1;
     }
     system("Pause");
     system("CLS");
@@ -248,4 +249,3 @@ int cli_orderByID(Cliente* pCliente, int len)
     }
     return 0;
 }
-

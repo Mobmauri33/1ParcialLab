@@ -5,26 +5,26 @@
 #include "pedido.h"
 #include "residuos.h"
 #include "utn_strings.h"
-//#include "Informes.h"
+#include "informes.h"
 #define REINTENTOS 3
-#define LEN_CLIENTES 50
+#define LEN_CLIENTES 100
 #define LIS_PEDIDOS 1000
 #define LES_RESIDUOS 20
 
 int main()
 {
-    int flag=0;
+    int flag=1;
     int posLibre;
     int opcion=0;
-    //char opcionL;
+    char opcionL;
 
     Cliente lista[LEN_CLIENTES];
     Pedido pedidos[LIS_PEDIDOS];
-    //Residuo residuos[LES_RESIDUOS];
+    Residuo residuos[LES_RESIDUOS];
 
-    cli_initCliente(lista,50);
+    cli_initCliente(lista,100);
     ped_initPedido(pedidos,1000);
-    //res_initResiduo(residuos,20);
+    res_initResiduo(residuos,200);
 
     /*
     strcpy(residuos[1].nombre,"rest1");
@@ -42,28 +42,41 @@ int main()
     residuos[3].isEmpty=0;
     residuos[3].idResiduo=3;
 
-    strcpy(residuos[4].nombre,"rest4");
-    residuos[4].tipo=3;
-    residuos[4].isEmpty=0;
-    residuos[4].idResiduo=4;
+    */
+    residuos[1].tipo=3;
+    residuos[1].estado=2;
+    residuos[1].kilos=50;
+    residuos[1].isEmpty=0;
+    residuos[1].idResiduo=1;
 
-    strcpy(residuos[5].nombre,"rest5");
-    residuos[5].tipo=4;
-    residuos[5].isEmpty=0;
-    residuos[5].idResiduo=5;
+    residuos[2].tipo=3;
+    residuos[2].estado=2;
+    residuos[2].kilos=30;
+    residuos[2].isEmpty=0;
+    residuos[2].idResiduo=2;
 
-    strcpy(lista[1].nombre,"Cliente1");
-    strcpy(lista[1].lugar,"Lugar1");
-    lista[1].tipo=1;
+    strcpy(lista[1].nombreEmpresa,"Cliente1");
+    strcpy(lista[1].direccion,"Lugar1");
+    strcpy(lista[1].localidad,"Avellaneda");
+    strcpy(lista[1].cuit,"23398885550");
+    lista[1].cantPedidos=10;
+    lista[1].cantPedPendientes=3;
+    lista[1].cantPedCompletados=7;
     lista[1].isEmpty=0;
     lista[1].idCliente=1;
 
-    strcpy(lista[2].nombre,"Cliente2");
-    strcpy(lista[2].lugar,"Lugar1");
-    lista[2].tipo=2;
+
+    strcpy(lista[2].nombreEmpresa,"Cliente2");
+    strcpy(lista[2].direccion,"Lugar2");
+    strcpy(lista[2].localidad,"Merlo");
+    strcpy(lista[2].cuit,"23393334441");
+    lista[2].cantPedidos=20;
+    lista[2].cantPedPendientes=15;
+    lista[2].cantPedCompletados=5;
     lista[2].isEmpty=0;
     lista[2].idCliente=2;
 
+    /*
     strcpy(lista[3].nombre,"Cliente3");
     strcpy(lista[3].lugar,"Lugar2");
     lista[3].tipo=3;
@@ -76,22 +89,22 @@ int main()
     lista[4].isEmpty=0;
     lista[4].idCliente=4;
 
-    strcpy(pedidos[1].nombre,"ped1");
-    strcpy(pedidos[1].apellido,"Aped1");
-    pedidos[1].edad=30;
+    */
+    pedidos[1].estado=1;
+    pedidos[1].kilos=60;
     pedidos[1].isEmpty=0;
     pedidos[1].idCliente=1;
-    pedidos[1].idResiduo=2;
+    pedidos[1].idResiduos=1;
     pedidos[1].idPedido=1;
 
-    strcpy(pedidos[2].nombre,"ped2");
-    strcpy(pedidos[2].apellido,"Aped2");
-    pedidos[2].edad=20;
+    pedidos[2].estado=1;
+    pedidos[2].kilos=35;
     pedidos[2].isEmpty=0;
     pedidos[2].idCliente=2;
-    pedidos[2].idResiduo=5;
+    pedidos[2].idResiduos=2;
     pedidos[2].idPedido=2;
 
+    /*
     strcpy(pedidos[3].nombre,"ped3");
     strcpy(pedidos[3].apellido,"Aped3");
     pedidos[3].edad=25;
@@ -125,13 +138,12 @@ int main()
     pedidos[6].idPedido=6;
 
     */
-    flag=1;
 
-    while(opcion!=11)
+    while(opcion!=10)
     {
 getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cliente\n3)Baja de Cliente\n"
               "4)Crear Pedido de recoleccion\n5)Procesar Residuos\n6)Imprimir Clientes\n7)Imprimir Pedidos pendientes\n"
-              "8)Imprimir Pedidos procesados\n9)Salir\n\n INGRESE OPCION: ","ERROR\n",1,9,3);
+              "8)Imprimir Pedidos procesados\n9)Informes\n10)Salir\n\n INGRESE OPCION: ","ERROR\n",1,10,3);
               system("CLS");
         switch(opcion)
         {
@@ -218,7 +230,6 @@ getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cli
                 if(flag)
                 {
                     cli_printCliente(lista,LEN_CLIENTES);
-                    cli_findClienteById(lista,LEN_CLIENTES,0);
                     posLibre=ped_findFree(pedidos,LIS_PEDIDOS);
                 if(posLibre>=0)
                 {
@@ -243,84 +254,30 @@ getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cli
                     system("Pause");
                     system("CLS");
                 }
+                fflush(stdin);
                 break;
             }
         }
-            /*
             case 5:
             {
                 if(flag)
                 {
-                    if(ped_alter(pedidos,LIS_pedidos,"DATO NO VALIDO\n",REINTENTOS))
-                    {
-                        printf("\n----Se modifico pedidos exitosamente----\n");
-                        system("Pause");
-                        system("CLS");
-                    }
-                    else
-                    {
-                        printf("\n----No se modifico pedidos!----\n");
-                        system("Pause");
-                        system("CLS");
-                    }
-                }
-                else
-                {
-                    printf("\n----No hay ALTAS de pedidos en la NOMINA!----\n");
-                    system("Pause");
-                    system("CLS");
-                }
-                break;
-            }
-            case 6:
-            {
-                if(flag)
-                {
-                    if(ped_removePedido(pedidos,LIS_pedidos,"DATO NO VALIDO\n",REINTENTOS))
-                    {
-                        printf("\n----La BAJA de pedidos se realizo con exito!----\n");
-                        system("Pause");
-                        system("CLS");
-                    }
-                    else
-                    {
-                        printf("\n----No se realizo la BAJA de pedidos!----\n");
-                        system("Pause");
-                        system("CLS");
-                    }
-                }
-                else
-                {
-                    printf("\n----No hay ALTAS de pedidos en la NOMINA!----\n");
-                    system("Pause");
-                    system("CLS");
-                }
-                break;
-            }
-            case 7:
-            {
-                if(flag)
-                {
-                    ped_printPedido(pedidos,LIS_pedidos);
-                }
-                break;
-            }
-            case 8:
-            {
-                posLibre=res_findFree(residuos,LES_RESIDUOS);
+                    ped_printPedido(pedidos,LIS_PEDIDOS);
+                    fflush(stdin);
+                    posLibre=res_findFree(residuos,LES_RESIDUOS);
                 if(posLibre>=0)
                 {
                     printf("\n----Se encontro lugar----\n");
                     if(!res_addResiduo(residuos,LES_RESIDUOS,posLibre,"DATO NO VALIDO\n",REINTENTOS))
                     {
                         flag=1;
-                        printf("\n----Se dio ALTA de ResiduoS exitosamente!----\n");
+                        printf("\n----Se dio ALTA de Residuo exitosamente!----\n");
                         system("Pause");
                         system("CLS");
                     }
                     else
                     {
-                        printf("\n----No se realizo el ALTA de ResiduoS!----\n");
+                        printf("\n----No se realizo el ALTA de Residuo!----\n");
                         system("Pause");
                         system("CLS");
                     }
@@ -333,21 +290,28 @@ getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cli
                 }
                 break;
             }
-            case 9:
-            {
-                if(flag)
-                {
-                    res_printResiduo(residuos,LES_RESIDUOS);
-                }
+        }
+            case 6:
+                inf_imprimirClienteConPedPendiente(lista,pedidos,LEN_CLIENTES);
+                fflush(stdin);
                 break;
-            }
-            case 10:
+            case 7:
+                inf_imprimirPedPendientes(lista,pedidos,LEN_CLIENTES);
+                fflush(stdin);
+                break;
+            case 8:
+                inf_imprimirPedProcesados(lista,pedidos,residuos,LEN_CLIENTES);
+                fflush(stdin);
+                break;
+            case 9:
             while(opcionL!='s')
             {
-                utn_getChar("\n\n*MENU DE INFORMES*\n\na)Clientes correspondientes a un lugar \nb)pedidos menores de 25 \n"
-                             "c)Clientes con menos de 6 pedidos \nd)Residuos de una Cliente \ne)Clientes completas \n"
-                             "f)Clientes con la menor cantidad de pedidos \ng)Promedio de Residuos por Cliente \n"
-                             "h)pedidos excepto aquellos que toquen Residuos de viento \ns)Volver al Menu Principal \n"
+                utn_getChar("\n\n*MENU DE INFORMES*\n\na)Cliente con mas pedidos Pendientes \nb)Cliente con mas pedidos Completados \n"
+                             "c)Clientes con mas pedidos \nd)Cliente que reciclo mas kilos \ne)Cliente que reciclo menos kilos \n"
+                             "f)Cantidad de Clientes que reciclaron mas de 1000 kilos \ng)Cantidad de Clientes que reciclaron menos de 100 kilos \n"
+                             "h)Imprimir los pedidos completados indicando: Id pedido,Cuit cliente,% de plast. reciclado(kilos recicl/kilos totales) \ni)Ingresar una Localidad e indicar la cant de pedidos pendientes para dicha Localidad \n"
+                             "j)Cantidad de kilos de polipropileno reciclado promedio por cliente(kilos totales/ cant clientes) \n"
+                             "k)Ingresar cuit de un cliente y uno de los tres Tipos de plastico e informar la cantidad de kilos totales reclicadas de dicho tipo \ns)Volver al Menu Principal \n\n"
                              "\nIngrese la opcion: ",
                                    "\nError",'a','s',1,&opcionL);
                                    system("CLS");
@@ -355,42 +319,57 @@ getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cli
                 switch(opcionL)
                 {
                 case 'a':
-                    inf_mostrarClienteDeUnLugarDeterminado(lista,LEN_CLIENTES);
+                    inf_mostrarClienteConMasPedPendientes(lista,pedidos,LEN_CLIENTES,LIS_PEDIDOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'b':
-                    inf_mostrarpedidosDeMenosDe25(pedidos,lista,residuos,LIS_pedidos,LEN_CLIENTES,LES_RESIDUOS);
+                    inf_mostrarClienteConMasPedCompletados(lista,pedidos,LEN_CLIENTES,LIS_PEDIDOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'c':
-                    inf_mostrarClienteConMenosDe6pedidos(lista,pedidos,LEN_CLIENTES,LIS_pedidos);
+                    inf_mostrarClienteConMasPedidos(lista,pedidos,LEN_CLIENTES,LIS_PEDIDOS);
                     system("Pause");
                     system("CLS");
                      break;
                 case 'd':
-                    inf_mostrarResiduoDeClienteDeterminada(lista,LEN_CLIENTES,residuos,LES_RESIDUOS,pedidos,LIS_pedidos);
+                    inf_mostrarClienteConMasKilosReciclados(lista,residuos,LEN_CLIENTES,LES_RESIDUOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'e':
-                    inf_mostrarClienteCompleta(lista,LEN_CLIENTES,residuos,LES_RESIDUOS,pedidos,LIS_pedidos);
+                    inf_mostrarClienteConMenosKilosReciclados(lista,residuos,LEN_CLIENTES,LES_RESIDUOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'f':
-                    inf_mostrarClienteConMenospedidos(lista,pedidos,LEN_CLIENTES,LIS_pedidos);
+                    inf_mostrarCantidadDeClienteQueRecicloMasDe1000Kg(lista,residuos,LEN_CLIENTES,LES_RESIDUOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'g':
-                    inf_mostrarPromedioDeResiduos(lista,pedidos,LEN_CLIENTES,LIS_pedidos);
+                    inf_mostrarCantidadDeClienteQueRecicloMenosDe100Kg(lista,residuos,LEN_CLIENTES,LES_RESIDUOS);
                     system("Pause");
                     system("CLS");
                     break;
                 case 'h':
-                    inf_mostrarpedidosQueNoToquenResiduoDeViento(pedidos,residuos,LIS_pedidos,LES_RESIDUOS);
+                    inf_mostrarPedidosCompletadosSegunIdCuitYPorc(lista,pedidos,residuos,LEN_CLIENTES);
+                    system("Pause");
+                    system("CLS");
+                    break;
+                case 'i':
+                    inf_mostrarCantidadDePedidosPendientesDeUnaLocalidadDeterminada(lista,LEN_CLIENTES);
+                    system("Pause");
+                    system("CLS");
+                    break;
+                case 'j':
+                    inf_mostrarPromedioDeKgDePpPorCliente(lista,residuos,LEN_CLIENTES,LES_RESIDUOS);
+                    system("Pause");
+                    system("CLS");
+                    break;
+                case 'k':
+                    inf_mostrarCantidadDeKilosDePlasticoDeUnCuitDeterminado(lista,residuos,LEN_CLIENTES);
                     system("Pause");
                     system("CLS");
                     break;
@@ -402,7 +381,6 @@ getIntInRange(&opcion,"\n\n*MENU*\n\n1)Alta de Cliente\n2)Modificar datos de Cli
                 system("CLS");
             }
         }
-        */
     }
 }
     return 0;

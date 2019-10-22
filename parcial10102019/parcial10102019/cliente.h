@@ -6,8 +6,12 @@ typedef struct
     char nombreEmpresa[50];
     char direccion[50];
     char localidad[50];
-    int cuit;
+    char cuit[20];
+    int cantPedidos;
+    int cantPedPendientes;
+    int cantPedCompletados;
     int isEmpty;
+    int idPedido; ///clave unica de identidad univoca
     int idCliente; ///clave unica de identidad univoca
 }Cliente;
 
@@ -91,5 +95,4 @@ int cli_orderByID(Cliente* pCliente, int len);
 * \return void return
 */
 void limpiar (void);
-
 #endif // CLIENTE_H_INCLUDED

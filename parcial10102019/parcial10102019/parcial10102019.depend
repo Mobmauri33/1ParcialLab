@@ -1,16 +1,5 @@
 # depslib dependency file v1.0
-1570748943 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"cliente.h"
-	"utn_strings.h"
-
-1570748737 c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.h
-
-1559244292 c:\users\alumno\desktop\parcial10102019\parcial10102019\utn_strings.h
-
-1570749180 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\main.c
+1571342544 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -19,21 +8,305 @@
 	"residuos.h"
 	"utn_strings.h"
 
-1570748446 c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.h
+1571354289 c:\users\alumno\desktop\parcial10102019\parcial10102019\cliente.h
 
-1570744050 c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.h
+1559244292 c:\users\alumno\desktop\parcial10102019\parcial10102019\utn_strings.h
 
-1570749200 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.c
+1571357240 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"cliente.h"
 	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+	"informes.h"
+
+1571288986 c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.h
+
+1571342484 c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.h
+
+1571342004 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
 	"utn_strings.h"
 
-1570744032 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.c
+1571336114 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\residuos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
 
 1559206326 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\utn_strings.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"utn_strings.h"
+
+1571342544 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571354290 c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\cliente.h
+
+1559244292 c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\utn_strings.h
+
+1571778356 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+	"informes.h"
+
+1571779154 c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\pedido.h
+
+1571342484 c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\residuos.h
+
+1571342004 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571336114 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\residuos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+
+1559206326 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\utn_strings.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"utn_strings.h"
+
+1571180107 source:d:\mis documentos\parcial10102019\parcial10102019\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"utn_strings.h"
+
+1571166012 d:\mis documentos\parcial10102019\parcial10102019\cliente.h
+
+1559244292 d:\mis documentos\parcial10102019\parcial10102019\utn_strings.h
+
+1571181003 source:d:\mis documentos\parcial10102019\parcial10102019\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571181081 d:\mis documentos\parcial10102019\parcial10102019\pedido.h
+
+1571182663 d:\mis documentos\parcial10102019\parcial10102019\residuos.h
+
+1571183260 source:d:\mis documentos\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571183486 source:d:\mis documentos\parcial10102019\parcial10102019\residuos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+
+1559206326 source:d:\mis documentos\parcial10102019\parcial10102019\utn_strings.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"utn_strings.h"
+
+1571778912 source:c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+	"Informes.h"
+
+1571779929 c:\users\laura\desktop\repositorio\parcial10102019\parcial10102019\informes.h
+
+1571357122 source:c:\users\alumno\desktop\parcial10102019\parcial10102019\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+	"Informes.h"
+
+1571357149 c:\users\alumno\desktop\parcial10102019\parcial10102019\informes.h
+
+1571342544 source:e:\parcial10102019\parcial10102019\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571354290 e:\parcial10102019\parcial10102019\cliente.h
+
+1571288986 e:\parcial10102019\parcial10102019\pedido.h
+
+1571342484 e:\parcial10102019\parcial10102019\residuos.h
+
+1559244292 e:\parcial10102019\parcial10102019\utn_strings.h
+
+1571357686 source:e:\parcial10102019\parcial10102019\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+	"Informes.h"
+
+1571357150 e:\parcial10102019\parcial10102019\informes.h
+
+1571342004 source:e:\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571336114 source:e:\parcial10102019\parcial10102019\residuos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+
+1559206326 source:e:\parcial10102019\parcial10102019\utn_strings.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"utn_strings.h"
+
+1571683034 source:e:\parcial10102019\parcial10102019\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+	"informes.h"
+
+1571342544 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571354290 c:\users\s-user\desktop\parcial10102019\parcial10102019\cliente.h
+
+1571288986 c:\users\s-user\desktop\parcial10102019\parcial10102019\pedido.h
+
+1571342484 c:\users\s-user\desktop\parcial10102019\parcial10102019\residuos.h
+
+1559244292 c:\users\s-user\desktop\parcial10102019\parcial10102019\utn_strings.h
+
+1571724904 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+	"Informes.h"
+
+1571724926 c:\users\s-user\desktop\parcial10102019\parcial10102019\informes.h
+
+1571724897 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+	"informes.h"
+
+1571342004 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\pedido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+	"pedido.h"
+	"residuos.h"
+	"utn_strings.h"
+
+1571336114 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\residuos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<strings.h>
+	"residuos.h"
+	"cliente.h"
+	"pedido.h"
+	"utn_strings.h"
+
+1559206326 source:c:\users\s-user\desktop\parcial10102019\parcial10102019\utn_strings.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

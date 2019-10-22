@@ -4,10 +4,11 @@
 ///Estructura de Pedido
 typedef struct
 {
-    int estado;
-    int isEmpty;
-    int idCliente;
+    int estado; ///1(Pendiente)2(Completado)
     int kilos;
+    int isEmpty;
+    int idResiduos; ///clave unica de identidad univoca
+    int idCliente; ///clave unica de identidad univoca
     int idPedido; ///clave unica de identidad univoca
 }Pedido;
 
@@ -20,7 +21,7 @@ typedef struct
  */
 int ped_initPedido(Pedido* pPedido,int len);
 /** \brief Busca el primer lugar vacio en un array
-* \param pPedido o pedtrument es el Array de Pedido
+* \param pPedido es el Array de Pedido
 * \param len int Tamaño del array
 * \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
 * \return int Return (-1) si no encuentra un lugar vacio o Error [Si la longitud es invalida o puntero NULL], (0) si encuentra una posicion vacia
@@ -28,7 +29,7 @@ int ped_initPedido(Pedido* pPedido,int len);
 */
 int ped_findFree(Pedido* pPedido, int len);
 /** \brief Solicita los datos para completar la primer posicion vacia de un array
-* \param pPedido o pedtrument es el Array de Pedido
+* \param pPedido es el Array de Pedido
 * \param len int Tamaño del array
 * \param pIndex int* indice de puntero al ID unico que se va a asignar al nuevo elemento
 * \return int Return (-1) si dio Error [Si la longitud es invalida o puntero NULL o no hay posiciones vacias], (0) si se agrega un nuevo elemento exitosamente

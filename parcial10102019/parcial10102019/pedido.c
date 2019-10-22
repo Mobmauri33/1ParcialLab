@@ -3,6 +3,7 @@
 #include <string.h>
 #include "cliente.h"
 #include "pedido.h"
+#include "residuos.h"
 #include "utn_strings.h"
 
 int ped_initPedido(Pedido* pPedido,int len)
@@ -36,17 +37,25 @@ int ped_findFree(Pedido* pPedido, int len)
 
 int ped_addPedido(Pedido* pPedido,int len,int pIndex,char* msgE,int tries)
 {
+    char bufferIdCliente[20];
     int auxKilos;
     int auxEstado;
+    int auxIdCliente;
     int retorno=-1;
     if((pPedido!=NULL)&&(len>0)&&(pIndex!=-1))
     {
-        getInt(&auxKilos,"\nIngrese la cantidad de Kilos totales que se le recolectaran al cliente:","Error");
-        getIntInRange(&auxEstado,"\nIngrese Estado:\n 1)(Pendiente): \n 2)(Completado): \n ",msgE,1,2,tries);
-        pPedido[pIndex].estado=auxEstado;
-        pPedido[pIndex].kilos=auxKilos;
-        pPedido[pIndex].isEmpty=0;
-        retorno=0;
+        if(getStringNumeros(bufferIdCliente,"\nIngrese el id del Cliente:",msgE,tries)==0)
+        {
+            getIntInRange(&auxKilos,"\nIngrese la cantidad de Kilos totales que se le recolectaran al cliente:",msgE,1,100,tries);
+            getIntInRange(&auxEstado,"\nEl Estado de su pedido quedara Pendiente Presione 1 para continuar:\n 1)(Pendiente): \n ",msgE,1,1,tries);
+            auxIdCliente = atoi(bufferIdCliente);
+            pPedido[pIndex].idCliente=auxIdCliente;
+            pPedido[pIndex].estado=auxEstado;
+            pPedido[pIndex].kilos=auxKilos;
+            pPedido[pIndex].isEmpty=0;
+            fflush(stdin);
+            retorno=0;
+        }
     }
     return retorno;
 }
@@ -66,22 +75,22 @@ int ped_findPedidoById(Pedido* pPedido, int len, int idE)
     return ret;
 }
 
-int ped_buscarID(Pedido *pedtrument, int cant, int valorBuscado, int* posicion)
+int ped_buscarID(Pedido *pedidos, int cant, int valorBuscado, int* posicion)
 {
     int retorno=-1;
     int i;
-    if(pedtrument!= NULL && cant>=0)
+    if(pedidos!= NULL && cant>=0)
     {
 
         for(i=0;i<cant;i++)
         {
-            if(pedtrument[i].isEmpty==1)
+            if(pedidos[i].isEmpty==1)
             {
                 continue;
             }
             else
             {
-                if(pedtrument[i].idPedido==valorBuscado)
+                if(pedidos[i].idPedido==valorBuscado)
                 {
                 retorno=0;
                 *posicion=i;
@@ -140,6 +149,7 @@ int ped_printPedido(Pedido* pPedido,int len)
         {
             printf("\nID: %d\nEstado: %d\nKilos: %d\n-------",
                    pPedido[i].idPedido,pPedido[i].estado,pPedido[i].kilos);
+                   fflush(stdin);
             flag=0;
         }
     }
